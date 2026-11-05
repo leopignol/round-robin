@@ -8,6 +8,17 @@
 
 using namespace std;
 
+string ordinal(int cardinal){
+  return to_string(cardinal) +
+    (cardinal == 1 ? "st" :
+      (cardinal == 2 ? "nd" :
+        (cardinal == 3 ? "rd" :
+          "th"
+        )
+      )
+    );
+}
+
 struct Contestant {
   uint8_t id;
   string name;
@@ -50,14 +61,14 @@ int main() {
 
   sort(game.contestants.begin(), game.contestants.end(),
     [](const Contestant &left, const Contestant &right){
-      return left.score >= right.score;
+      return left.score > right.score;
     }
   );
 
   size_t i = 1;
   for (Contestant &contestant : game.contestants){
-    cout << i << ": " << setw(13) << contestant.name << " (#"
-         << (unsigned)contestant.id << ") has a score of "
+    cout << ordinal(i) << ": " << setw(13) << contestant.name << " (#"
+         << (unsigned)contestant.id << ") with a score of "
          << (contestant.score > 0 ? " " : "") << (int)contestant.score << endl;
     ++i;
   }

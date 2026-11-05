@@ -2,5 +2,6 @@
 .PHONY := run
 
 run:
-	@g++ main.cpp -o round-robin
-	@./round-robin
+	@mkdir -p build
+	@g++ main.cpp -o build/round-robin
+	@build/round-robin
