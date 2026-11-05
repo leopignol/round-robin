@@ -1,9 +1,6 @@
-#include <algorithm>
 #include <cctype>
 #include <cstdint>
 #include <cstdlib>
-#include <iomanip>
-#include <iostream>
 #include <string>
 #include <vector>
 
@@ -16,7 +13,7 @@ string ordinal(int cardinal);
 struct Contestant {
   uint8_t id;
   string name;
-  int8_t score;
+  int8_t score = 0;
   vector<uint8_t> opponents = this->_opponents();
 
   private:
