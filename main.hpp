@@ -24,14 +24,3 @@ struct Contestant {
     return __opponents;
   }
 };
-
-struct Game {
-  vector<Contestant> contestants;
-};
-
-const vector<string> names = {
-  "Abdelkader", "Alain",
-  "Mickael", "Nassim",
-  "Laurence", "Laurent",
-  "Pierre-Alexis", "Pierrick"
-};

@@ -29,19 +29,19 @@ int main() {
   size_t longestName = 0;
 
   // Initialize game with contestants
-  Game game;
+  vector<Contestant> contestants;
   for (uint8_t i = 0; i < 8; ++i){
     string name;
     while (name.empty() || name[0] == '#')
       getline(cin, name);
     longestName = max(name.size(), longestName);
-    game.contestants.push_back(Contestant{i, name});
+    contestants.push_back(Contestant{i, name});
   }
 
-  for (Contestant &contestant : game.contestants){
+  for (Contestant &contestant : contestants){
     // Each contestant plays against all 7 others
     for (const uint8_t &oid : contestant.opponents){
-      Contestant &opponent = game.contestants[oid];
+      Contestant &opponent = contestants[oid];
 
       string strGuess;
       while (strGuess.empty() || strGuess[0] == '#')
@@ -70,7 +70,7 @@ int main() {
   }
 
   // Sort contestants based on score
-  sort(game.contestants.begin(), game.contestants.end(),
+  sort(contestants.begin(), contestants.end(),
     [](const Contestant &left, const Contestant &right){
       return left.score > right.score;
     }
@@ -78,7 +78,7 @@ int main() {
 
   // Display results with ordinal position
   size_t i = 1;
-  for (const Contestant &contestant : game.contestants){
+  for (const Contestant &contestant : contestants){
     cout
       << ordinal(i) << ": " << setw(longestName) << contestant.name << " (#"
       << (unsigned)contestant.id << ") with a score of "
