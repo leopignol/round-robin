@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <cctype>
 #include <cstdint>
 #include <cstdlib>
@@ -8,19 +9,35 @@
 
 using namespace std;
 
-string ordinal(int cardinal);
+enum GameType {
+  HEADS_OR_TAILS,
+  ROCK_PAPER_SCISSORS
+};
+
+enum HT {
+  HEADS, TAILS
+};
+
+enum RPS {
+  ROCK, PAPER, SCISSORS
+};
 
 struct Contestant {
-  uint8_t id;
   string name;
   int8_t score = 0;
-  vector<uint8_t> opponents = this->_opponents();
 
-  private:
-  vector<uint8_t> _opponents(){
-    vector<uint8_t> __opponents;
-    for (uint8_t i = 0; i < 8; ++i)
-      if (i != id) __opponents.push_back(i);
-    return __opponents;
+  vector<Contestant> opponents(const vector<Contestant> &contestants){
+    vector<Contestant> _contestants;
+    copy_if(
+      contestants.begin(),
+      contestants.end(),
+      back_inserter(_contestants),
+      [this](const Contestant &c){
+        return c.name != name;
+      }
+    );
+    return _contestants;
   }
 };
+
+string input();
