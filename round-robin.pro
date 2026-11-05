@@ -10,3 +10,6 @@ SOURCES += \
         main.cpp
 
 COPIES += oracle_files
+
+DISTFILES += \
+    README.md
