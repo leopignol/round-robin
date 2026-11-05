@@ -32,8 +32,8 @@ int main() {
 
   for (Contestant &contestant : game.contestants){
     // Each contestant plays against all 7 others
-    for (uint8_t &oid : contestant.opponents){
-      Contestant opponent = game.contestants[oid];
+    for (const uint8_t &oid : contestant.opponents){
+      Contestant &opponent = game.contestants[oid];
 
       string strGuess;
       cin >> strGuess;
@@ -41,7 +41,7 @@ int main() {
         c = tolower(c);
 
       bool guess;
-      if (strGuess == "heads")      guess = true;
+      if      (strGuess == "heads") guess = true;
       else if (strGuess == "tails") guess = false;
       else {
         cerr << "Expected \"heads\" or \"tails\", got \"" << strGuess << "\"." << endl;
@@ -60,7 +60,7 @@ int main() {
     }
   }
 
-  // Sort contestants on score
+  // Sort contestants based on score
   sort(game.contestants.begin(), game.contestants.end(),
     [](const Contestant &left, const Contestant &right){
       return left.score > right.score;
@@ -69,11 +69,11 @@ int main() {
 
   // Display results with ordinal position
   size_t i = 1;
-  for (Contestant &contestant : game.contestants){
+  for (const Contestant &contestant : game.contestants){
     cout
-      << ordinal(i) << ": " << setw(13) << contestant.name << " (#"
+      << ordinal(i) << ":" << setw(14) << contestant.name << " (#"
       << (unsigned)contestant.id << ") with a score of "
-      << (contestant.score > 0 ? " " : "") << (int)contestant.score << endl;
+      << (contestant.score >= 0 ? " " : "") << (int)contestant.score << endl;
     ++i;
   }
 
