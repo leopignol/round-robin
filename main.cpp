@@ -12,13 +12,11 @@ using namespace std;
 
 string ordinal(int cardinal){
   return to_string(cardinal) +
-    (cardinal == 1 ? "st" :
-      (cardinal == 2 ? "nd" :
-        (cardinal == 3 ? "rd" :
-          "th"
-        )
-      )
-    );
+    (cardinal % 10 == 1 ? "st" :
+    (cardinal % 10 == 2 ? "nd" :
+    (cardinal % 10 == 3 ? "rd" :
+      "th"
+    )));
 }
 
 struct Contestant {
@@ -52,7 +50,7 @@ int main() {
   srand(RAND);
 
   // Initialize game with contestants
-  Game game{{}};
+  Game game;
   for (uint8_t i = 0; i < 8; ++i)
     game.contestants.push_back(Contestant{i, names[i]});
 
@@ -96,9 +94,10 @@ int main() {
   // Display results with ordinal position
   size_t i = 1;
   for (Contestant &contestant : game.contestants){
-    cout << ordinal(i) << ": " << setw(13) << contestant.name << " (#"
-         << (unsigned)contestant.id << ") with a score of "
-         << (contestant.score > 0 ? " " : "") << (int)contestant.score << endl;
+    cout
+      << ordinal(i) << ": " << setw(13) << contestant.name << " (#"
+      << (unsigned)contestant.id << ") with a score of "
+      << (contestant.score > 0 ? " " : "") << (int)contestant.score << endl;
     ++i;
   }
 
