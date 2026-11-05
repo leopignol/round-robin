@@ -1,10 +1,12 @@
 #include <algorithm>
+#include <cctype>
 #include <cstdint>
 #include <cstdlib>
 #include <iomanip>
 #include <iostream>
 #include <string>
 #include <vector>
+#define RAND 0
 
 using namespace std;
 
@@ -23,12 +25,14 @@ struct Contestant {
   uint8_t id;
   string name;
   int8_t score;
+  vector<uint8_t> opponents = this->_opponents();
 
-  vector<uint8_t> opponents(){
-    vector<uint8_t> _opponents;
+  private:
+  vector<uint8_t> _opponents(){
+    vector<uint8_t> __opponents;
     for (uint8_t i = 0; i < 8; ++i)
-      if (i != id) _opponents.push_back(i);
-    return _opponents;
+      if (i != id) __opponents.push_back(i);
+    return __opponents;
   }
 };
 
@@ -44,27 +48,52 @@ const vector<string> names = {
 };
 
 int main() {
-  srand(0);
+  // Initialize random on fixed value
+  srand(RAND);
 
+  // Initialize game with contestants
   Game game{{}};
   for (uint8_t i = 0; i < 8; ++i)
     game.contestants.push_back(Contestant{i, names[i]});
 
   for (Contestant &contestant : game.contestants){
-    for (uint8_t &opponent : contestant.opponents()){
-      bool victory = rand() % 2 == 0;
+    // Each contestant plays against all 7 others
+    for (uint8_t &oid : contestant.opponents){
+      Contestant opponent = game.contestants[oid];
 
-      contestant.score                 += victory ?  1 : -1;
-      game.contestants[opponent].score += victory ? -1 :  1;
+      string strGuess;
+      cin >> strGuess;
+      for (char &c : strGuess)
+        c = tolower(c);
+
+      bool guess;
+      if (strGuess == "heads")      guess = true;
+      else if (strGuess == "tails") guess = false;
+      else {
+        cerr << "Expected \"heads\" or \"tails\", got \"" << strGuess << "\"." << endl;
+        exit(1);
+      }
+
+      // Heads or tails
+      bool victory = (guess == (rand() % 2 == 0));
+
+      // Easter egg
+      if (strGuess == "edge") victory = false;
+
+      // Modify scores
+      contestant.score += victory ?  1 : -1;
+      opponent.score   += victory ? -1 :  1;
     }
   }
 
+  // Sort contestants on score
   sort(game.contestants.begin(), game.contestants.end(),
     [](const Contestant &left, const Contestant &right){
       return left.score > right.score;
     }
   );
 
+  // Display results with ordinal position
   size_t i = 1;
   for (Contestant &contestant : game.contestants){
     cout << ordinal(i) << ": " << setw(13) << contestant.name << " (#"
