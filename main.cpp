@@ -25,10 +25,18 @@ int main() {
   // Initialize random on fixed value
   srand(RAND);
 
+  // Longest name length for output
+  size_t longestName = 0;
+
   // Initialize game with contestants
   Game game;
-  for (uint8_t i = 0; i < 8; ++i)
-    game.contestants.push_back(Contestant{i, names[i]});
+  for (uint8_t i = 0; i < 8; ++i){
+    string name;
+    while (name.empty() || name[0] == '#')
+      getline(cin, name);
+    longestName = max(name.size(), longestName);
+    game.contestants.push_back(Contestant{i, name});
+  }
 
   for (Contestant &contestant : game.contestants){
     // Each contestant plays against all 7 others
@@ -36,7 +44,8 @@ int main() {
       Contestant &opponent = game.contestants[oid];
 
       string strGuess;
-      cin >> strGuess;
+      while (strGuess.empty() || strGuess[0] == '#')
+        getline(cin, strGuess);
       for (char &c : strGuess)
         c = tolower(c);
 
@@ -71,7 +80,7 @@ int main() {
   size_t i = 1;
   for (const Contestant &contestant : game.contestants){
     cout
-      << ordinal(i) << ":" << setw(14) << contestant.name << " (#"
+      << ordinal(i) << ": " << setw(longestName) << contestant.name << " (#"
       << (unsigned)contestant.id << ") with a score of "
       << (contestant.score >= 0 ? " " : "") << (int)contestant.score << endl;
     ++i;
