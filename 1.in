@@ -1,3 +1,9 @@
+## Ce fichier oracle ne déclenchera jamais
+## de match nul sur le pierre feuille ciseaux
+
+## Les résultats des pile ou face ne sont pas
+## aléatoires, mais prédéfinis par srand(0)
+
 # Nom des joueurs
 Abdelkader
 Alain
@@ -7,193 +13,77 @@ Laurence
 Laurent
 Pierre-Alexis
 Pierrick
+
 # Début du tournoi de pile ou face et de pierre feuille ciseaux
-# Heads est pile
-# Tails est face
+# Heads est face
+# Tails est pile
 # Rock est pierre
 # Paper est feuille
 # Scissors est ciseaux
+
 # Alterne entre:
-# Guess du joueur 1 (le joueur 2 prend l'opposé)
+# Guess du joueur 1 (le joueur 2 prend forcément l'opposé)
 # Action du joueur 1
 # Action du joueur 2
 # Si le score est identique:
-#   Guess du joueur 1 (le joueur 2 prend l'opposé)
+#   Guess du joueur 2 (le joueur 1 prend forcément l'opposé)
 
-heads
-rock
-scissors
-
-tails
-paper
-scissors
-heads
-
-tails
-paper
-paper
-
-heads
-rock
-scissors
-
-tails
-scissors
-paper
-tails
-
-heads
-paper
-paper
-
-tails
-scissors
-rock
-
-
-heads
-paper
-scissors
-tails
-
-heads
-paper
-rock
-
-heads
-scissors
-scissors
-
+## J1
 tails
 rock
 scissors
-heads
-
-tails
-paper
-rock
-
-tails
-paper
-paper
-
-tails
-scissors
-paper
-
-
-tails
-rock
-scissors
-
-tails
-rock
-scissors
-
-tails
-scissors
-scissors
-
-heads
-paper
-rock
-tails
-
-heads
-paper
-scissors
+# 1-1, donc troisième jeu
 heads
 
 heads
 scissors
 rock
+# 1-1, donc troisième jeu
+heads
 
 heads
 paper
-paper
-
-
-heads
-rock
 scissors
-
-tails
-scissors
-rock
-
-tails
-scissors
-paper
+# 1-1, donc troisième jeu
 tails
 
 heads
+rock
 scissors
-rock
-
-heads
-rock
-rock
-
-tails
-scissors
-rock
+# 1-1, donc troisième jeu
 heads
 
 tails
 paper
 rock
+# 1-1, donc troisième jeu
 heads
 
+heads
+paper
+scissors
+# 2-0, donc pas de troisième jeu
 
+tails
+paper
+scissors
+# 2-0, donc pas de troisième jeu
+
+
+## J2
 heads
 paper
 rock
 tails
 
 tails
-paper
-scissors
-heads
-
-heads
-paper
-scissors
-heads
-
-heads
-scissors
-paper
-
-tails
-scissors
-paper
-
-tails
 rock
-rock
-
-tails
-paper
 scissors
 tails
 
-
-heads
+tails
 scissors
 paper
-
-tails
-scissors
-scissors
-
-heads
-paper
-scissors
-heads
-
-tails
-scissors
-scissors
 
 heads
 rock
@@ -201,47 +91,57 @@ paper
 
 heads
 rock
-rock
-
-heads
-rock
-rock
-
-
-heads
 paper
-paper
-
-tails
-paper
-scissors
-tails
 
 heads
 scissors
-scissors
-
-heads
-rock
 paper
 heads
 
 tails
-paper
+scissors
 paper
 
+## J3
 heads
 scissors
+rock
+tails
+
+heads
+rock
 scissors
+heads
 
 tails
+rock
 scissors
-paper
-
 
 heads
 scissors
 rock
+heads
+
+tails
+rock
+paper
+
+tails
+scissors
+rock
+
+tails
+paper
+rock
+
+## J4
+heads
+rock
+paper
+
+heads
+scissors
+paper
 tails
 
 heads
@@ -250,22 +150,151 @@ paper
 
 heads
 rock
+paper
+tails
+
+heads
+paper
 rock
 
 heads
 paper
+scissors
+
+tails
+paper
+scissors
+
+## J5
+heads
+paper
+scissors
+heads
+
+tails
+paper
+scissors
+
+tails
+scissors
+rock
+tails
+
+tails
+rock
+paper
+tails
+
+tails
+scissors
+rock
+
+tails
+scissors
 paper
 
 tails
+rock
+paper
+
+## J6
+heads
+scissors
+rock
+
+heads
 scissors
 rock
 heads
 
 heads
-rock
-rock
+scissors
+paper
+tails
 
+tails
+rock
+paper
+heads
+
+heads
+scissors
+paper
+tails
+
+heads
+scissors
+rock
+heads
+
+heads
+scissors
+paper
+heads
+
+## J7
+heads
+rock
+paper
+
+heads
+rock
+paper
+heads
+
+heads
+scissors
+paper
+
+heads
+scissors
+rock
+heads
+
+heads
+scissors
+paper
+heads
+
+tails
+rock
+scissors
+
+tails
+scissors
+paper
+heads
+
+## J8
 tails
 paper
 rock
 tails
+
+heads
+paper
+rock
+tails
+
+tails
+scissors
+rock
+tails
+
+heads
+paper
+scissors
+
+tails
+paper
+scissors
+tails
+
+tails
+rock
+scissors
+
+tails
+rock
+paper
+heads

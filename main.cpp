@@ -68,51 +68,53 @@ int main() {
 
             /*        -------- ROCK PAPER SCISSORS --------        */
 
-            string inputGuessC = input();
-            string inputGuessO = input();
+            RPS guessC = RPS::ROCK;
+            RPS guessO = RPS::ROCK;
 
-            // Contestant move
-            RPS guessC;
-            if      (inputGuessC == "rock")     guessC = RPS::ROCK;
-            else if (inputGuessC == "paper")    guessC = RPS::PAPER;
-            else if (inputGuessC == "scissors") guessC = RPS::SCISSORS;
-            else {
-                cerr
-                    << "Expected \"rock\", \"paper\" or \"scissors\", got \""
-                    << inputGuessC << "\"." << endl;
-                exit(1);
+            while (guessC == guessO){
+                string inputGuessC = input();
+                string inputGuessO = input();
+
+                // Contestant move
+                if      (inputGuessC == "rock")     guessC = RPS::ROCK;
+                else if (inputGuessC == "paper")    guessC = RPS::PAPER;
+                else if (inputGuessC == "scissors") guessC = RPS::SCISSORS;
+                else {
+                    cerr
+                        << "Expected \"rock\", \"paper\" or \"scissors\", got \""
+                        << inputGuessC << "\"." << endl;
+                    exit(1);
+                }
+
+                // Opponent move
+                if      (inputGuessO == "rock")     guessO = RPS::ROCK;
+                else if (inputGuessO == "paper")    guessO = RPS::PAPER;
+                else if (inputGuessO == "scissors") guessO = RPS::SCISSORS;
+                else {
+                    cerr
+                        << "Expected \"rock\", \"paper\" or \"scissors\", got \""
+                        << inputGuessC << "\"." << endl;
+                    exit(1);
+                }
             }
 
-            // Opponent move
-            RPS guessO;
-            if      (inputGuessO == "rock")     guessO = RPS::ROCK;
-            else if (inputGuessO == "paper")    guessO = RPS::PAPER;
-            else if (inputGuessO == "scissors") guessO = RPS::SCISSORS;
-            else {
-                cerr
-                    << "Expected \"rock\", \"paper\" or \"scissors\", got \""
-                    << inputGuessC << "\"." << endl;
-                exit(1);
-            }
+            victory = false;
+            if      (guessC == RPS::ROCK     && guessO == RPS::SCISSORS) victory = true;
+            else if (guessC == RPS::PAPER    && guessO == RPS::ROCK    ) victory = true;
+            else if (guessC == RPS::SCISSORS && guessO == RPS::PAPER   ) victory = true;
 
-            // Tie sets as no winner
-            if (guessC != guessO) {
-                victory = false;
-                if      (guessC == RPS::ROCK     && guessO == RPS::SCISSORS) victory = true;
-                else if (guessC == RPS::PAPER    && guessO == RPS::ROCK    ) victory = true;
-                else if (guessC == RPS::SCISSORS && guessO == RPS::PAPER   ) victory = true;
+            // Update scores
+            if (victory)
+                ++contestantScore;
+            else ++opponentScore;
 
-                // Update scores
-                if (victory)
-                     ++contestantScore;
-                else ++opponentScore;
-            }
 
             /*        -------- HEADS OR TAILS (RIGGED) --------        */
             // Same as first mini game but rigged,
             // heads is twice as probable
+
             if (contestantScore == opponentScore) {
-                // Contestant guess, opponent takes opposite
+                // Opponent guess, contestant takes opposite
                 string inputGuess = input();
                 HT guess;
                 if      (inputGuess == "heads") guess = HT::HEADS;
@@ -130,8 +132,8 @@ int main() {
 
                 // Update scores
                 if (victory)
-                     ++contestantScore;
-                else ++opponentScore;
+                     ++opponentScore;
+                else ++contestantScore;
             }
 
             if (contestantScore > opponentScore)
@@ -150,7 +152,8 @@ int main() {
     // Display results
     size_t placement = 0;
     for (const Contestant &contestant : contestants)
-        cout << setw(longestName) << contestant.name << ": " << ++placement << endl;
+        cout << setw(longestName) << contestant.name
+             << ": " << ++placement << endl;
 
     return 0;
 }
