@@ -3,18 +3,18 @@ CONFIG += console c++17
 CONFIG -= app_bundle
 CONFIG -= qt
 
+SOURCES += \
+        main.cpp
+
 oracle_files.files = $$PWD/*.in $$PWD/*.oracle
 oracle_files.path = $$OUT_PWD
 
-SOURCES += \
-    main.cpp
-
 COPIES += \
-    oracle_files
+       oracle_files
 
 DISTFILES += \
-    1.in \
-    2.in \
-    1.oracle \
-    2.oracle \
-    README.md
+          README.md \
+          1.in \
+          1.oracle \
+          2.in \
+          2.oracle
