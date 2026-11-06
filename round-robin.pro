@@ -6,6 +6,9 @@ CONFIG -= qt
 SOURCES += \
         main.cpp
 
+HEADERS += \
+        main.hpp
+
 oracle_files.files = $$PWD/*.in $$PWD/*.oracle
 oracle_files.path = $$OUT_PWD
 
