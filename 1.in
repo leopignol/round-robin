@@ -22,11 +22,11 @@ Pierrick
 # Scissors est ciseaux
 
 # Alterne entre:
-# Guess du joueur 1 (le joueur 2 prend forcément l'opposé)
-# Action du joueur 1
-# Action du joueur 2
+# Pile ou face: Guess du joueur 1 (le joueur 2 prend forcément l'opposé)
+# Pierre feuille ciseaux: Action du joueur 1
+# Pierre feuille ciseaux: Action du joueur 2
 # Si le score est identique:
-#   Guess du joueur 2 (le joueur 1 prend forcément l'opposé)
+#   Pile ou face truqué: Guess du joueur 2 (le joueur 1 prend forcément l'opposé)
 
 ## J1
 tails
