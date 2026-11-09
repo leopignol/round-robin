@@ -23,278 +23,404 @@ Pierrick
 
 # Alterne entre:
 # Pile ou face: Guess du joueur 1 (le joueur 2 prend forcément l'opposé)
+# Pile ou face: Résultat
 # Pierre feuille ciseaux: Action du joueur 1
 # Pierre feuille ciseaux: Action du joueur 2
 # Si le score est identique:
 #   Pile ou face truqué: Guess du joueur 2 (le joueur 1 prend forcément l'opposé)
+#   Pile ou face truqué: Résultat
 
-## J1
-tails
-rock
-scissors
-# 1-1, donc troisième jeu
+## Abdelkader:
 heads
-
-heads
-scissors
-rock
-# 1-1, donc troisième jeu
-heads
-
 heads
 paper
 scissors
 # 1-1, donc troisième jeu
+heads
 tails
 
 heads
+heads
 rock
+paper
+# 1-1, donc troisième jeu
+tails
+heads
+
+tails
+tails
+scissors
+rock
+# 1-1, donc troisième jeu
+heads
+heads
+
+heads
+heads
+scissors
+rock
+# 1-1, donc troisième jeu
+heads
+heads
+
+tails
+heads
+rock
+paper
+# 0-2, donc pas de troisième jeu
+
+heads
+heads
+paper
 scissors
 # 1-1, donc troisième jeu
 heads
+tails
 
+tails
 tails
 paper
 rock
-# 1-1, donc troisième jeu
-heads
+# 2-0, donc pas de troisième jeu
 
 heads
+tails
+rock
 paper
+# 0-2, donc pas de troisième jeu
+
+## Alain:
+heads
+tails
+scissors
+paper
+# 1-1, donc troisième jeu
+tails
+heads
+
+tails
+heads
+paper
+scissors
+# 0-2, donc pas de troisième jeu
+
+heads
+heads
+scissors
+paper
+# 2-0, donc pas de troisième jeu
+
+heads
+tails
+scissors
+paper
+# 1-1, donc troisième jeu
+tails
+tails
+
+tails
+tails
+paper
+scissors
+# 1-1, donc troisième jeu
+tails
+tails
+
+heads
+tails
+paper
+scissors
+# 0-2, donc pas de troisième jeu
+
+tails
+tails
+scissors
+rock
+# 1-1, donc troisième jeu
+heads
+heads
+
+tails
+heads
+paper
+scissors
+# 0-2, donc pas de troisième jeu
+
+## Mickael:
+heads
+heads
+paper
+rock
+# 2-0, donc pas de troisième jeu
+
+tails
+tails
+rock
 scissors
 # 2-0, donc pas de troisième jeu
 
 tails
+heads
 paper
+rock
+# 1-1, donc troisième jeu
+heads
+heads
+
+heads
+heads
+rock
+paper
+# 1-1, donc troisième jeu
+heads
+heads
+
+heads
+heads
+paper
+scissors
+# 1-1, donc troisième jeu
+heads
+heads
+
+tails
+tails
+rock
+paper
+# 1-1, donc troisième jeu
+heads
+tails
+
+heads
+heads
+paper
+rock
+# 2-0, donc pas de troisième jeu
+
+tails
+heads
+paper
+scissors
+# 0-2, donc pas de troisième jeu
+
+## Nassim:
+tails
+heads
+rock
+paper
+# 0-2, donc pas de troisième jeu
+
+heads
+heads
+paper
+scissors
+# 1-1, donc troisième jeu
+heads
+heads
+
+tails
+tails
+paper
+scissors
+# 1-1, donc troisième jeu
+tails
+tails
+
+heads
+heads
+paper
+rock
+# 2-0, donc pas de troisième jeu
+
+tails
+heads
+rock
+scissors
+# 1-1, donc troisième jeu
+heads
+tails
+
+heads
+heads
+scissors
+paper
+# 2-0, donc pas de troisième jeu
+
+tails
+heads
+paper
+scissors
+# 0-2, donc pas de troisième jeu
+
+heads
+heads
+paper
+rock
+# 2-0, donc pas de troisième jeu
+
+## Laurence:
+heads
+tails
+rock
+paper
+# 0-2, donc pas de troisième jeu
+
+tails
+heads
+scissors
+rock
+# 0-2, donc pas de troisième jeu
+
+tails
+heads
+paper
+rock
+# 1-1, donc troisième jeu
+tails
+tails
+
+heads
+tails
+rock
+paper
+# 0-2, donc pas de troisième jeu
+
+tails
+tails
+scissors
+rock
+# 1-1, donc troisième jeu
+tails
+heads
+
+tails
+heads
+rock
+paper
+# 0-2, donc pas de troisième jeu
+
+tails
+heads
+paper
+rock
+# 1-1, donc troisième jeu
+heads
+heads
+
+tails
+heads
+paper
+rock
+# 1-1, donc troisième jeu
+heads
+tails
+
+## Laurent:
+heads
+tails
+rock
+paper
+# 0-2, donc pas de troisième jeu
+
+tails
+tails
+paper
+rock
+# 2-0, donc pas de troisième jeu
+
+tails
+heads
+paper
+scissors
+# 0-2, donc pas de troisième jeu
+
+tails
+tails
+paper
+rock
+# 2-0, donc pas de troisième jeu
+
+heads
+heads
+paper
+rock
+# 2-0, donc pas de troisième jeu
+
+heads
+heads
+rock
+paper
+# 1-1, donc troisième jeu
+heads
+tails
+
+tails
+tails
+rock
 scissors
 # 2-0, donc pas de troisième jeu
 
-
-## J2
 heads
-paper
-rock
-tails
-
-tails
-rock
-scissors
-tails
-
-tails
-scissors
-paper
-
-heads
-rock
-paper
-
-heads
-rock
-paper
-
-heads
-scissors
-paper
-heads
-
-tails
-scissors
-paper
-
-## J3
-heads
-scissors
-rock
-tails
-
-heads
-rock
-scissors
-heads
-
-tails
-rock
-scissors
-
-heads
-scissors
-rock
-heads
-
-tails
-rock
-paper
-
-tails
-scissors
-rock
-
 tails
 paper
 rock
-
-## J4
+# 1-1, donc troisième jeu
 heads
-rock
-paper
-
-heads
-scissors
-paper
 tails
 
-heads
-scissors
-paper
-
-heads
-rock
-paper
+## Pierre-Alexis:
 tails
-
-heads
-paper
-rock
-
 heads
 paper
 scissors
+# 0-2, donc pas de troisième jeu
 
 tails
-paper
-scissors
-
-## J5
-heads
-paper
-scissors
-heads
-
-tails
-paper
-scissors
-
-tails
-scissors
-rock
-tails
-
 tails
 rock
 paper
+# 1-1, donc troisième jeu
+tails
 tails
 
 tails
-scissors
-rock
-
-tails
-scissors
-paper
-
-tails
-rock
-paper
-
-## J6
 heads
 scissors
 rock
+# 0-2, donc pas de troisième jeu
 
 heads
-scissors
-rock
-heads
-
-heads
-scissors
-paper
 tails
-
-tails
-rock
 paper
-heads
-
-heads
 scissors
-paper
-tails
+# 0-2, donc pas de troisième jeu
 
 heads
-scissors
-rock
-heads
-
-heads
-scissors
-paper
-heads
-
-## J7
-heads
-rock
-paper
-
-heads
-rock
-paper
-heads
-
-heads
-scissors
-paper
-
-heads
-scissors
-rock
-heads
-
-heads
-scissors
-paper
-heads
-
-tails
-rock
-scissors
-
-tails
-scissors
-paper
-heads
-
-## J8
 tails
 paper
 rock
-tails
+# 1-1, donc troisième jeu
+heads
+heads
 
 heads
-paper
-rock
-tails
-
-tails
-scissors
-rock
-tails
-
 heads
 paper
 scissors
-
+# 1-1, donc troisième jeu
 tails
-paper
-scissors
-tails
-
-tails
-rock
-scissors
-
-tails
-rock
-paper
 heads
+
+heads
+tails
+paper
+rock
+# 1-1, donc troisième jeu
+heads
+heads
+
+heads
+heads
+rock
+scissors
+# 2-0, donc pas de troisième jeu
