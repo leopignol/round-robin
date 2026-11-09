@@ -1,9 +1,6 @@
 ## Ce fichier oracle va déclencher des
 ## matchs nuls sur le pierre feuille ciseaux
 
-## Les résultats des pile ou face ne sont pas
-## aléatoires, mais prédéfinis par srand(0)
-
 # Nom des joueurs
 Agostinelli
 Betari

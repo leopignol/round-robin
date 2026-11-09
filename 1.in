@@ -1,9 +1,6 @@
 ## Ce fichier oracle ne déclenchera jamais
 ## de match nul sur le pierre feuille ciseaux
 
-## Les résultats des pile ou face ne sont pas
-## aléatoires, mais prédéfinis par srand(0)
-
 # Nom des joueurs
 Abdelkader
 Alain
