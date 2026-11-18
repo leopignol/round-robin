@@ -114,11 +114,7 @@ int main() {
                 ++contestantScore;
             else ++opponentScore;
 
-
             /*        -------- HEADS OR TAILS (RIGGED) --------        */
-            // Same as first mini game but rigged,
-            // heads is twice as probable
-
             if (contestantScore == opponentScore) {
                 // Opponent guess, contestant takes opposite
                 string inputGuess = input();
