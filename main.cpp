@@ -11,16 +11,6 @@
 
 using namespace std;
 
-string input(bool keepCase) {
-  string val;
-  while (val.empty() || val[0] == '#')
-    getline(cin, val);
-  if (!keepCase)
-    for (char &c : val)
-      c = tolower(c);
-  return val;
-}
-
 int main() {
   size_t longestName = 0;
   // Initialize game with contestants
