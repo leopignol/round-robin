@@ -23,7 +23,8 @@ int main() {
 
   // Each contestant plays against all 7 others
   for (Contestant &contestant : contestants) {
-    for (Contestant &opponent : contestant.opponents(contestants)) {
+    for (auto ref : contestant.opponents(contestants)) {
+      Contestant &opponent = ref.get();
       uint8_t contestantScore = 0;
       uint8_t opponentScore = 0;
 

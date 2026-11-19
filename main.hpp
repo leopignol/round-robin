@@ -1,13 +1,13 @@
-#include <algorithm>
+#ifndef __ROUND_ROBIN_HPP
+#define __ROUND_ROBIN_HPP
+
 #include <cctype>
 #include <cstdint>
 #include <cstdlib>
+#include <functional>
 #include <iostream>
 #include <string>
 #include <vector>
-
-#ifndef __ROUND_ROBIN_HPP
-#define __ROUND_ROBIN_HPP
 
 enum HT { HEADS, TAILS };
 
@@ -17,11 +17,12 @@ struct Contestant {
   std::string name;
   uint8_t victories = 0;
 
-  std::vector<Contestant>
-  opponents(const std::vector<Contestant> &contestants) {
-    std::vector<Contestant> _contestants;
-    copy_if(contestants.begin(), contestants.end(), back_inserter(_contestants),
-            [this](const Contestant &c) { return c.name != this->name; });
+  std::vector<std::reference_wrapper<Contestant>>
+  opponents(std::vector<Contestant> &contestants) {
+    std::vector<std::reference_wrapper<Contestant>> _contestants;
+    for (Contestant &c : contestants)
+      if (&c != this)
+        _contestants.push_back(std::ref(c));
     return _contestants;
   }
 };
