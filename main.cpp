@@ -56,8 +56,6 @@ int main() {
       }
 
       bool victory = (guess == result);
-      if (inputGuess == "edge")
-        victory = false;
 
       // Update scores
       if (victory)
@@ -96,7 +94,7 @@ int main() {
           guessO = RPS::SCISSORS;
         else {
           cerr << "Expected \"rock\", \"paper\" or \"scissors\", got \""
-               << inputGuessC << "\"." << endl;
+               << inputGuessO << "\"." << endl;
           exit(1);
         }
       }
